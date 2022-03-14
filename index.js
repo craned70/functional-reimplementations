@@ -2,87 +2,103 @@ var _ = {};
 
 
 /*********IDENTITY**********/
-_.identity = function(val) {
-    return val;
+_.identity = function (val) {
+    console.log(val);
 };
 
 /*********FIRST**********/
-_.first = function(array, n) {};
+_.first = function (array, n) {
+    if (n) {
+        for (let i = 0; i < n; i++) {
+            console.log(array[i]);
+        };
+    } else {
+        console.log(array[0]);
+    };
+};
 
 /*********LAST**********/
-_.last = function(array, n) {};
+_.last = function (array, n) {
+    if (n) {
+        for (let i = array.length - 1; i > array.length - (n + 1); i--) {
+            console.log(array[i])
+        }
+    } else {
+        console.log(array[array.length - 1]);
+    }
+};
 
 /*********EACH**********/
-_.each = function(collection, iterator) {};
+_.each = function (collection, iterator) { };
 
 /*********INDEXOF**********/
-_.indexOf = function(array, target) {};
+_.indexOf = function (array, target) { };
 
 /*********FILTER**********/
-_.filter = function(collection, test) {};
+_.filter = function (collection, test) { };
 
 /*********REJECT**********/
-_.reject = function(collection, test) {};
+_.reject = function (collection, test) { };
 
 /*********UNIQ**********/
-_.uniq = function(array) {};
+_.uniq = function (array) { };
 
 /*********MAP**********/
-_.map = function(collection, iterator) {};
+_.map = function (collection, iterator) { };
 
 /*********PLUCK**********/
-_.pluck = function(collection, key) {};
+_.pluck = function (collection, key) { };
 
 /*********INVOKE*********/
-_.invoke = function(collection, func, args) {};
+_.invoke = function (collection, func, args) { };
 
 /*********REDUCE**********/
-_.reduce = function(collection, iterator, accum) {};
+_.reduce = function (collection, iterator, accum) { };
 
 /*********CONTAINS*********/
-_.contains = function(collection, target) {};
+_.contains = function (collection, target) { };
 
 /*********EVERY**********/
-_.every = function(collection, iterator) {};
+_.every = function (collection, iterator) { };
 
 /********SOME**********/
-_.some = function(collection, iterator) {};
+_.some = function (collection, iterator) { };
 
 /*********EXTEND**********/
-_.extend = function(obj) {};
+_.extend = function (obj) { };
 
 /*********DEFAULTS**********/
- _.defaults = function(obj) {};
+_.defaults = function (obj) { };
 
 /*********ONCE**********/
-_.once = function(func) {};
+_.once = function (func) { };
 
 /*********MEMOIZE*************/
-_.memoize = function(func) {};
+_.memoize = function (func) { };
 
 /*********DELAY*********/
-_.delay = function(func, wait) {};
+_.delay = function (func, wait) { };
 
 /*********SHUFFLE**********/
- _.shuffle = function(array) {};
+_.shuffle = function (array) { };
 
 /*********SORTBY**********/
-_.sortBy = function(collection, iterator) {};
+_.sortBy = function (collection, iterator) { };
 
 /*********ALTERNATE SORTBY USING MANUAL SORT**********/
-_.sortByManual = function(collection, iterator) {};
+_.sortByManual = function (collection, iterator) { };
 
 /*********ZIP**********/
-_.zip = function() {};
+_.zip = function () { };
 
 /*********FLATTEN**********/
-_.flatten = function(nestedArray) {};
+_.flatten = function (nestedArray) { };
 
 /*********UNION**********/
-_.union = function() {};
+_.union = function () { };
 
 /*********INTERSECTION**********/
-_.intersection = function() {};
-    
+_.intersection = function () { };
+
 /*********DIFFERENCE**********/
-_.difference = function(array) {};
+_.difference = function (array) { };
