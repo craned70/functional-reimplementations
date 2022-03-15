@@ -1,8 +1,5 @@
 var _ = {};
 
-let bigArray =
-
-
     /*********IDENTITY**********/
     _.identity = function (val) {
         console.log(val);
