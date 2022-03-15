@@ -1,10 +1,12 @@
 var _ = {};
 
+let bigArray =
 
-/*********IDENTITY**********/
-_.identity = function (val) {
-    console.log(val);
-};
+
+    /*********IDENTITY**********/
+    _.identity = function (val) {
+        console.log(val);
+    };
 
 /*********FIRST**********/
 _.first = function (array, n) {
@@ -29,10 +31,47 @@ _.last = function (array, n) {
 };
 
 /*********EACH**********/
-_.each = function (collection, iterator) { };
+_.each = function (list, iteratee, context) {
+    if (context) {
+        iteratee.bind(context);
+    };
+
+    if (Array.isArray(list)) {
+        for (let i = 0; i < list.length; i++) {
+            iteratee(list[i], i, list);
+        }
+    } else if (typeof (list) === 'object' && !Array.isArray(list)) {
+        for (const [key, value] of Object.entries(list)) {
+            iteratee(value, key, list);
+        };
+    };
+
+    return list;
+};
 
 /*********INDEXOF**********/
-_.indexOf = function (array, target) { };
+_.indexOf = function (array, target) {
+    function binarySearch(arr, tar) {
+        let low = 0;
+        let high = array.length - 1;
+        let mid;
+        while (high >= low) {
+            mid = 1 + Math.floor((high - 1) / 2);
+
+            if (arr[mid] === tar) {
+                return mid;
+            } else if (arr[mid] > tar) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            };
+        };
+
+        return -1;
+    };
+
+    binarySearch(array, target);
+};
 
 /*********FILTER**********/
 _.filter = function (collection, test) { };
