@@ -47,7 +47,7 @@ _.each = function (list, iteratee, context) {
 };
 
 /*********INDEXOF**********/
-_.indexOf = function (array, target) {
+_.indexOf = function (array, target, isSorted) {
   function binarySearch(arr, tar) {
     let low = 0;
     let high = array.length - 1;
@@ -56,7 +56,7 @@ _.indexOf = function (array, target) {
       mid = Math.floor((low + high) / 2);
 
       if (arr[mid] == tar) {
-        return(console.log("Index of " + tar + " is " + mid));
+        return console.log("Index of " + tar + " is " + mid);
       } else if (arr[mid] > tar) {
         high = mid - 1;
       } else {
@@ -64,10 +64,28 @@ _.indexOf = function (array, target) {
       }
     }
 
-    return(console.log(-1))
+    return console.log(-1);
   }
 
-  binarySearch(array, target);
+  if (isSorted && typeof isSorted === "boolean" && isSorted === true) {
+    console.log("we're using binary search");
+    binarySearch(array, target);
+  } else if (isSorted && typeof isSorted === "number") {
+    for (let i = isSorted; i < array.length; i++) {
+      if (array[i] === target) {
+        console.log("we're starting at index " + isSorted);
+        return console.log("Index of " + target + " is " + i);
+      }
+    }
+    return console.log(-1);
+  } else {
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === target) {
+        return console.log("Index of " + target + " is " + i);
+      }
+    }
+    return console.log(-1);
+  }
 };
 
 /*********FILTER**********/
