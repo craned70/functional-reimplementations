@@ -2,17 +2,17 @@ var _ = {};
 
 /*********IDENTITY**********/
 _.identity = function (val) {
-  console.log(val);
+  return val;
 };
 
 /*********FIRST**********/
 _.first = function (array, n) {
   if (n) {
     for (let i = 0; i < n; i++) {
-      console.log(array[i]);
+      return array[i];
     }
   } else {
-    console.log(array[0]);
+    return array[0];
   }
 };
 
@@ -20,10 +20,10 @@ _.first = function (array, n) {
 _.last = function (array, n) {
   if (n) {
     for (let i = array.length - 1; i > array.length - (n + 1); i--) {
-      console.log(array[i]);
+      return array[i];
     }
   } else {
-    console.log(array[array.length - 1]);
+    return array[array.length - 1];
   }
 };
 
@@ -56,7 +56,7 @@ _.indexOf = function (array, target, isSorted) {
       mid = Math.floor((low + high) / 2);
 
       if (arr[mid] == tar) {
-        return console.log("Index of " + tar + " is " + mid);
+        return mid;
       } else if (arr[mid] > tar) {
         high = mid - 1;
       } else {
@@ -64,28 +64,25 @@ _.indexOf = function (array, target, isSorted) {
       }
     }
 
-    return console.log(-1);
+    return-1;
   }
 
   if (isSorted && typeof isSorted === "boolean" && isSorted === true) {
-    console.log("we're using binary search");
     binarySearch(array, target);
   } else if (isSorted && typeof isSorted === "number") {
     for (let i = isSorted; i < array.length; i++) {
       if (array[i] === target) {
-        console.log("using normal search starting at index " + isSorted);
-        return console.log("Index of " + target + " is " + i);
+        return i;
       }
     }
-    return console.log(-1);
+    return -1;
   } else {
-    console.log("using normal search starting at index 0");
     for (let i = 0; i < array.length; i++) {
       if (array[i] === target) {
-        return console.log("Index of " + target + " is " + i);
+        return i;
       }
     }
-    return console.log(-1);
+    return -1;
   }
 };
 
@@ -102,7 +99,7 @@ _.filter = function (collection, test, context) {
         }
     }
 
-    return console.log(resultArr);
+    return resultArr;
     // "predicate is transformed through iteratee to facilitate shorthand syntaxes."
     // WTF DOES THAT MEAN AVI????
 };
