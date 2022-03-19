@@ -73,12 +73,13 @@ _.indexOf = function (array, target, isSorted) {
   } else if (isSorted && typeof isSorted === "number") {
     for (let i = isSorted; i < array.length; i++) {
       if (array[i] === target) {
-        console.log("we're starting at index " + isSorted);
+        console.log("using normal search starting at index " + isSorted);
         return console.log("Index of " + target + " is " + i);
       }
     }
     return console.log(-1);
   } else {
+    console.log("using normal search starting at index 0");
     for (let i = 0; i < array.length; i++) {
       if (array[i] === target) {
         return console.log("Index of " + target + " is " + i);
@@ -89,7 +90,22 @@ _.indexOf = function (array, target, isSorted) {
 };
 
 /*********FILTER**********/
-_.filter = function (collection, test) {};
+_.filter = function (collection, test, context) {
+    if (context) {
+        test.bind(context);
+    }
+
+    let resultArr = [];
+    for (let i = 0; i < collection.length; i++) {
+        if (test(collection[i])) {
+            resultArr.push(collection[i]);
+        }
+    }
+
+    return console.log(resultArr);
+    // "predicate is transformed through iteratee to facilitate shorthand syntaxes."
+    // WTF DOES THAT MEAN AVI????
+};
 
 /*********REJECT**********/
 _.reject = function (collection, test) {};
