@@ -64,10 +64,10 @@ _.indexOf = function (array, target, isSorted) {
       }
     }
 
-    return-1;
+    return -1;
   }
 
-  if (isSorted && typeof isSorted === "boolean" && isSorted === true) {
+  if (isSorted && typeof isSorted === "boolean" && isSorted === 'true') {
     binarySearch(array, target);
   } else if (isSorted && typeof isSorted === "number") {
     for (let i = isSorted; i < array.length; i++) {
@@ -88,20 +88,20 @@ _.indexOf = function (array, target, isSorted) {
 
 /*********FILTER**********/
 _.filter = function (collection, test, context) {
-    if (context) {
-        test.bind(context);
-    }
+  if (context) {
+    test.bind(context);
+  }
 
-    let resultArr = [];
-    for (let i = 0; i < collection.length; i++) {
-        if (test(collection[i])) {
-            resultArr.push(collection[i]);
-        }
+  let resultArr = [];
+  for (let i = 0; i < collection.length; i++) {
+    if (test(collection[i])) {
+      resultArr.push(collection[i]);
     }
+  }
 
-    return resultArr;
-    // "predicate is transformed through iteratee to facilitate shorthand syntaxes."
-    // WTF DOES THAT MEAN AVI????
+  return resultArr;
+  // "predicate is transformed through iteratee to facilitate shorthand syntaxes."
+  // WTF DOES THAT MEAN AVI????
 };
 
 /*********REJECT**********/
