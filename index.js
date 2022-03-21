@@ -67,7 +67,7 @@ _.indexOf = function (array, target, isSorted) {
     return -1;
   }
 
-  if (isSorted && typeof isSorted === "boolean" && isSorted === 'true') {
+  if (isSorted && typeof isSorted === "boolean" && isSorted === "true") {
     binarySearch(array, target);
   } else if (isSorted && typeof isSorted === "number") {
     for (let i = isSorted; i < array.length; i++) {
